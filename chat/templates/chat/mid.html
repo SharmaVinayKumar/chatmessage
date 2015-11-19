@@ -1,0 +1,24 @@
+<ul class="list-group">
+  	{%for message in message_list%}
+  		<li class="list-group-item">
+  			<a href="{%url 'user_list' message.from_user.id%}">
+    			{{message.from_user}}
+  			</a>
+  			<div>	
+  			{{message.body}}
+  			</div>
+	{%endfor%}  
+</ul>
+{%if form%}
+<div class="col-md-10 col-md-offset-1">
+	<div class='raw login-background'>
+		<div class="col-md-6">
+			<form action="." method="post">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button type="submit" class="btn btn-success ">Send</button>
+			</form>
+		</div>
+	</div>
+</div>
+{%endif%}

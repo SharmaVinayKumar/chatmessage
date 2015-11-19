@@ -1,0 +1,11 @@
+<ul class="list-group">
+  	{%for user in unique_user_list%}
+  		<li class="list-group-item">
+  			<a href="{%url 'user_list' user.to_user.id%}">
+    			{{user.to_user}}
+  			</a>
+  			<div>	
+  			{{user.message.body}}
+  			</div>
+	{%endfor%}  
+</ul>

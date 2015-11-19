@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from chat.views import LoginView, ChatView, LogOutView, SignUpView
 
 urlpatterns = [
+    url(r'^$', LoginView.as_view(), name="login"),
+    url(r'^signup/$', SignUpView.as_view(), name="signup"),
+    url(r'^logout/$', LogOutView.as_view(), name ="logout" ),
+    url(r'^home/(?P<user_id>\d+)/$', ChatView.as_view(), name="user_list"),
+    url(r'^home/$', ChatView.as_view(), name="home"),
     url(r'^admin/', include(admin.site.urls)),
 ]

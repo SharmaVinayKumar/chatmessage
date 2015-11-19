@@ -1,0 +1,9 @@
+<ul class="list-group">
+  	{%for user in all_user_list%}
+  		<li class="list-group-item">
+  				<a href="{%url 'user_list' user.id%}">
+	    			{{user}}
+	  			</a>
+  			
+	{%endfor%}  
+</ul>

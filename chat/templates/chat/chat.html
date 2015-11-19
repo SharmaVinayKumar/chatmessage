@@ -1,0 +1,23 @@
+{%extends 'base.html'%} 
+{%load staticfiles%}
+{%block title%}Main page{%endblock%}
+ 
+{%block container%}
+	<div class="row">
+		<div class="col-md-3">
+			{%block left%}
+				{%include 'chat/left.html'%}
+			{%endblock%}
+		</div>
+		<div class="col-md-6">
+			{%block center%}
+				{%include 'chat/mid.html'%}
+			{%endblock%}
+		</div>
+		<div class="col-md-3">
+			{%block right%}
+				{%include 'chat/right.html'%}
+			{%endblock%}
+		</div>
+	</div>
+{%endblock%}
