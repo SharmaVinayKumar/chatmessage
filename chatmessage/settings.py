@@ -120,6 +120,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+ADMINS = (
+     ('vinay kumar', 'vk-sharma@outlook.com'),
+)
+
+MANAGERS = ADMINS
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 LOGGING = {
