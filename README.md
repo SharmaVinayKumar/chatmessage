@@ -23,6 +23,9 @@ $python manage.py migrate
 
 $python manage.py runserver
 
+#step to use application
+
 Signup->login->select user->send message
+
 
 
