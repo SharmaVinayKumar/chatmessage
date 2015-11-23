@@ -97,7 +97,7 @@ class ChatView(View):
             self.context['message_list'] = message_list
             self.context['form'] = self.form_class(initial={'to_user': user_id})
         all_user_list = User.objects.exclude(id=request.user.id)
-        unique_user_list = MessageUserList.objects.filter(requested_user=request.user).order_by('to_user','-created_time').distinct('to_user')
+        unique_user_list = MessageUserList.objects.filter(requested_user=request.user).distinct('created_time','to_user').order_by('-created_time')
         self.context['all_user_list'] = all_user_list
         self.context['unique_user_list'] = unique_user_list
         return render_to_response(self.template_name, self.context,\
@@ -119,7 +119,7 @@ class ChatView(View):
         self.context['message_list'] = message_list
         self.context['form'] = form
         all_user_list = Message.objects.filter(Q(from_user=request.user)| Q(to_user=request.user)).order_by('-created_time')
-        unique_user_list = MessageUserList.objects.filter(requested_user=request.user).distinct('to_user').order_by('-created_time')
+        unique_user_list = MessageUserList.objects.filter(requested_user=request.user).distinct('created_time','to_user').order_by('-created_time')
         self.context['all_user_list'] = all_user_list
         self.context['unique_user_list'] = unique_user_list
         return render_to_response(self.template_name, self.context,\
